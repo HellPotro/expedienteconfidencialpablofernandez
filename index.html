@@ -341,43 +341,22 @@
         }
 
         .photo-file {
-            position: relative;
+    position: relative;
 
-            padding: 10px;
+    padding: 10px;
 
-            background: white;
-            border: 1px solid var(--line);
-            box-shadow: 0 10px 25px rgba(0,0,0,.12);
+    background: white;
+    border: 1px solid var(--line);
+    box-shadow: 0 10px 25px rgba(0,0,0,.12);
 
-            transform: rotate(-.7deg);
-        }
+    transform: rotate(-.7deg);
+}
 
-        .photo-file::before {
-            content: "EVIDENCIA 001";
-
-            position: absolute;
-            z-index: 2;
-            top: 23px;
-            left: 23px;
-
-            padding: 6px 9px;
-
-            background: var(--black);
-            color: white;
-
-            font-size: 9px;
-            font-weight: 900;
-            letter-spacing: .1em;
-        }
-
-        .photo-file img {
-            display: block;
-
-            width: 100%;
-            aspect-ratio: 16 / 10;
-
-            object-fit: cover;
-        }
+.photo-file img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
 
         .photo-caption {
             padding: 13px 5px 3px;
