@@ -18,8 +18,6 @@
             --black: #101312;
             --grey: #69706c;
             --line: #d8ddd9;
-
-            --warning: #bb2525;
         }
 
         * {
@@ -92,10 +90,8 @@
         h1 {
             position: relative;
             z-index: 2;
-
             max-width: 760px;
             margin: 14px 0 8px;
-
             font-size: clamp(44px, 8vw, 82px);
             line-height: .88;
             letter-spacing: -.06em;
@@ -109,10 +105,8 @@
         .subtitle {
             position: relative;
             z-index: 2;
-
             max-width: 650px;
             margin-top: 22px;
-
             color: rgba(255,255,255,.72);
             font-size: 17px;
             line-height: 1.55;
@@ -123,16 +117,12 @@
             z-index: 3;
             top: 48px;
             right: 45px;
-
             padding: 9px 14px;
-
             border: 3px solid white;
             color: white;
-
             font-size: 14px;
             font-weight: 900;
             letter-spacing: .15em;
-
             transform: rotate(-6deg);
             opacity: .82;
         }
@@ -144,7 +134,6 @@
         .metadata {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-
             background: var(--black);
             color: white;
         }
@@ -160,9 +149,7 @@
 
         .label {
             display: block;
-
             margin-bottom: 5px;
-
             color: var(--grey);
             font-size: 10px;
             font-weight: 800;
@@ -192,7 +179,6 @@
             display: inline-flex;
             align-items: center;
             gap: 7px;
-
             color: var(--racing-green);
             font-size: 11px;
             font-weight: 900;
@@ -209,7 +195,6 @@
 
         h2 {
             margin: 9px 0 24px;
-
             font-size: clamp(28px, 4vw, 43px);
             line-height: 1.05;
             letter-spacing: -.04em;
@@ -217,7 +202,6 @@
 
         .lead {
             max-width: 760px;
-
             color: #323834;
             font-family: Georgia, "Times New Roman", serif;
             font-size: 18px;
@@ -232,16 +216,15 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 18px;
-
             margin-top: 28px;
         }
 
         .candidate {
             position: relative;
-            overflow: hidden;
-
+            overflow: visible;
             padding: 25px;
-
+            padding-right: 150px;
+            min-height: 330px;
             background: var(--off-white);
             border-top: 5px solid var(--racing-green);
             border-right: 1px solid var(--line);
@@ -254,7 +237,6 @@
             position: absolute;
             right: -6px;
             bottom: -25px;
-
             color: rgba(45,154,41,.055);
             font-size: 105px;
             font-weight: 900;
@@ -262,6 +244,8 @@
         }
 
         .candidate-code {
+            position: relative;
+            z-index: 2;
             color: var(--racing-green);
             font-size: 10px;
             font-weight: 900;
@@ -270,18 +254,86 @@
         }
 
         .candidate h3 {
+            position: relative;
+            z-index: 2;
             margin: 9px 0 4px;
-
             font-size: 27px;
             letter-spacing: -.03em;
         }
 
         .role {
+            position: relative;
+            z-index: 2;
             min-height: 38px;
             margin-bottom: 25px;
-
             color: var(--grey);
             font-size: 13px;
+        }
+
+        /* FOTO TIPO EXPEDIENTE */
+
+        .candidate-photo {
+            position: absolute;
+            top: 24px;
+            right: 22px;
+            width: 105px;
+            padding: 7px 7px 17px;
+            background: white;
+            border: 1px solid #d4d9d5;
+            box-shadow: 0 8px 18px rgba(0,0,0,.15);
+            z-index: 5;
+        }
+
+        .candidate:nth-child(1) .candidate-photo {
+            transform: rotate(3deg);
+        }
+
+        .candidate:nth-child(2) .candidate-photo {
+            transform: rotate(-2deg);
+        }
+
+        .candidate-photo img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 1 / 1.15;
+            object-fit: cover;
+            object-position: center;
+            filter: saturate(.88) contrast(1.04);
+        }
+
+        .photo-id {
+            display: block;
+            margin-top: 7px;
+            color: #777;
+            font-family: "Courier New", monospace;
+            font-size: 8px;
+            letter-spacing: .07em;
+            text-align: center;
+        }
+
+        /* CLIP */
+
+        .paperclip {
+            position: absolute;
+            top: -15px;
+            right: 18px;
+            width: 14px;
+            height: 43px;
+            border: 2px solid #777;
+            border-radius: 9px;
+            transform: rotate(8deg);
+            z-index: 6;
+        }
+
+        .paperclip::after {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 3px;
+            width: 5px;
+            height: 28px;
+            border: 1px solid #aaa;
+            border-radius: 6px;
         }
 
         .stat {
@@ -294,9 +346,7 @@
             display: flex;
             justify-content: space-between;
             gap: 20px;
-
             margin-bottom: 6px;
-
             font-size: 12px;
             font-weight: 700;
         }
@@ -309,7 +359,6 @@
         .bar {
             height: 6px;
             overflow: hidden;
-
             background: #dce1dd;
             border-radius: 20px;
         }
@@ -341,26 +390,36 @@
         }
 
         .photo-file {
-    position: relative;
+            position: relative;
+            padding: 10px;
+            background: white;
+            border: 1px solid var(--line);
+            box-shadow: 0 10px 25px rgba(0,0,0,.12);
+            transform: rotate(-.7deg);
+        }
 
-    padding: 10px;
+        .photo-file::before {
+            content: "EVIDENCIA 001";
+            position: absolute;
+            z-index: 2;
+            top: 23px;
+            left: 23px;
+            padding: 6px 9px;
+            background: var(--black);
+            color: white;
+            font-size: 9px;
+            font-weight: 900;
+            letter-spacing: .1em;
+        }
 
-    background: white;
-    border: 1px solid var(--line);
-    box-shadow: 0 10px 25px rgba(0,0,0,.12);
-
-    transform: rotate(-.7deg);
-}
-
-.photo-file img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
+        .photo-file img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
 
         .photo-caption {
             padding: 13px 5px 3px;
-
             color: #555d58;
             font-family: "Courier New", monospace;
             font-size: 11px;
@@ -378,13 +437,10 @@
 
         .rating {
             display: inline-block;
-
             margin: 10px 0 19px;
             padding: 8px 11px;
-
             background: var(--racing-green);
             color: white;
-
             font-size: 11px;
             font-weight: 900;
             letter-spacing: .08em;
@@ -399,12 +455,9 @@
         .quote {
             margin: 24px 0;
             padding: 18px 20px;
-
             background: var(--black);
             border-left: 6px solid var(--racing-green);
-
             color: white;
-
             font-family: Georgia, "Times New Roman", serif;
             font-size: 18px;
             font-style: italic;
@@ -414,31 +467,27 @@
         .warning {
             margin-top: 18px;
             padding: 13px 15px;
-
             background: var(--racing-green-soft);
             border-left: 4px solid var(--racing-green-dark);
-
             color: var(--racing-green-dark);
             font-size: 11px;
             line-height: 1.5;
         }
 
         /* =========================
-           DOCUMENTACIÓN
+           ARCHIVOS
         ========================== */
 
         .files {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 14px;
-
             margin-top: 25px;
         }
 
         .file {
             min-height: 175px;
             padding: 22px;
-
             background: var(--off-white);
             border: 1px solid var(--line);
             border-bottom: 4px solid var(--racing-green-dark);
@@ -458,7 +507,6 @@
 
         .file p {
             margin: 0;
-
             color: var(--grey);
             font-family: Georgia, "Times New Roman", serif;
             font-size: 14px;
@@ -466,16 +514,14 @@
         }
 
         /* =========================
-           DICTAMEN FINAL
+           FINAL
         ========================== */
 
         .final {
             position: relative;
             overflow: hidden;
-
             background: var(--racing-green-deep);
             color: white;
-
             text-align: center;
         }
 
@@ -484,10 +530,8 @@
             content: "";
             position: absolute;
             top: 0;
-
             width: 70px;
             height: 100%;
-
             background: rgba(45,154,41,.25);
         }
 
@@ -510,7 +554,6 @@
         .final h2 {
             position: relative;
             z-index: 2;
-
             margin-bottom: 12px;
             font-size: clamp(40px, 8vw, 72px);
             text-transform: uppercase;
@@ -519,10 +562,8 @@
         .final p {
             position: relative;
             z-index: 2;
-
             max-width: 690px;
             margin: auto;
-
             color: rgba(255,255,255,.73);
             font-family: Georgia, "Times New Roman", serif;
             font-size: 17px;
@@ -532,21 +573,15 @@
         .approved {
             position: relative;
             z-index: 2;
-
             display: inline-block;
-
             margin-top: 28px;
             padding: 12px 18px;
-
             background: white;
             color: var(--racing-green-deep);
-
             border: 3px solid white;
-
             font-size: 13px;
             font-weight: 900;
             letter-spacing: .11em;
-
             transform: rotate(-2deg);
         }
 
@@ -554,12 +589,9 @@
             display: flex;
             justify-content: space-between;
             gap: 20px;
-
             padding: 17px 24px;
-
             background: var(--black);
             color: rgba(255,255,255,.55);
-
             font-family: "Courier New", monospace;
             font-size: 9px;
             letter-spacing: .05em;
@@ -586,7 +618,6 @@
                 position: relative;
                 top: auto;
                 right: auto;
-
                 display: inline-block;
                 margin-top: 25px;
             }
@@ -609,6 +640,25 @@
                 grid-template-columns: 1fr;
             }
 
+            .candidate {
+                padding-right: 112px;
+                min-height: 315px;
+            }
+
+            .candidate-photo {
+                width: 78px;
+                top: 20px;
+                right: 15px;
+                padding: 5px 5px 13px;
+            }
+
+            .paperclip {
+                top: -12px;
+                right: 12px;
+                width: 11px;
+                height: 35px;
+            }
+
             .evidence-section {
                 background: white;
             }
@@ -626,10 +676,6 @@
 
     <main class="document">
 
-        <!-- =========================================
-             CABECERA
-        ========================================== -->
-
         <header class="header">
 
             <div class="classification">
@@ -643,7 +689,7 @@
 
             <p class="subtitle">
                 Evaluación preliminar de perfiles para garantizar la continuidad
-                del actual modelo de dirección compartida del club.
+                del actual modelo de dirección bicéfala del club.
             </p>
 
             <div class="stamp">
@@ -652,10 +698,6 @@
 
         </header>
 
-
-        <!-- =========================================
-             METADATOS
-        ========================================== -->
 
         <div class="metadata">
 
@@ -682,10 +724,6 @@
         </div>
 
 
-        <!-- =========================================
-             INTRODUCCIÓN
-        ========================================== -->
-
         <section>
 
             <div class="section-number">
@@ -710,10 +748,6 @@
         </section>
 
 
-        <!-- =========================================
-             CANDIDATOS
-        ========================================== -->
-
         <section>
 
             <div class="section-number">
@@ -724,9 +758,19 @@
 
             <div class="candidates">
 
-                <!-- PABLO -->
-
                 <article class="candidate">
+
+                    <div class="candidate-photo">
+                        <div class="paperclip"></div>
+
+                        <img
+                            src="./img/pablo.jpg"
+                            alt="Foto de Pablo Fernández">
+
+                        <span class="photo-id">
+                            RRC-CAND-01
+                        </span>
+                    </div>
 
                     <div class="candidate-code">
                         Candidato 01
@@ -781,9 +825,19 @@
                 </article>
 
 
-                <!-- GUILLERMO -->
-
                 <article class="candidate">
+
+                    <div class="candidate-photo">
+                        <div class="paperclip"></div>
+
+                        <img
+                            src="./img/guille.jpg"
+                            alt="Foto de Guillermo Cabrero">
+
+                        <span class="photo-id">
+                            RRC-CAND-02
+                        </span>
+                    </div>
 
                     <div class="candidate-code">
                         Candidato 02
@@ -842,10 +896,6 @@
         </section>
 
 
-        <!-- =========================================
-             EVIDENCIA TRUMP
-        ========================================== -->
-
         <section class="evidence-section">
 
             <div class="section-number">
@@ -858,11 +908,6 @@
 
                 <div class="photo-file">
 
-                    <!--
-                        Coloca aquí:
-                        /img/trump-pablo.jpg
-                    -->
-
                     <img
                         src="./img/trump-pablo.png"
                         alt="Supuesto encuentro institucional de Pablo con Donald Trump">
@@ -874,7 +919,6 @@
                     </div>
 
                 </div>
-
 
                 <div class="evidence-info">
 
@@ -920,10 +964,6 @@
         </section>
 
 
-        <!-- =========================================
-             ARCHIVOS
-        ========================================== -->
-
         <section>
 
             <div class="section-number">
@@ -935,69 +975,45 @@
             <div class="files">
 
                 <article class="file">
+                    <div class="file-id">ARCHIVO 002</div>
 
-                    <div class="file-id">
-                        ARCHIVO 002
-                    </div>
-
-                    <h3>
-                        Operación Lamine / Mbappé
-                    </h3>
+                    <h3>Operación Lamine / Mbappé</h3>
 
                     <p>
                         Se considera plausible que, después de dos horas hablando
                         con Pablo, Laporta o Florentino terminen convencidos de
                         que ceder sus principales activos al Racing fue idea suya.
                     </p>
-
                 </article>
 
-
                 <article class="file">
+                    <div class="file-id">ARCHIVO 003</div>
 
-                    <div class="file-id">
-                        ARCHIVO 003
-                    </div>
-
-                    <h3>
-                        División internacional de azufre
-                    </h3>
+                    <h3>División internacional de azufre</h3>
 
                     <p>
                         Guillermo mantiene capacidad acreditada para colocar
                         toneladas de producto en prácticamente cualquier punto
                         del planeta.
                     </p>
-
                 </article>
 
-
                 <article class="file">
+                    <div class="file-id">ARCHIVO 004</div>
 
-                    <div class="file-id">
-                        ARCHIVO 004
-                    </div>
-
-                    <h3>
-                        Incidente del almacén
-                    </h3>
+                    <h3>Incidente del almacén</h3>
 
                     <p>
                         Las instalaciones han sido acondicionadas con éxito.
                         Determinadas fuentes aseguran, sin embargo, que todavía
                         huele a azufre.
                     </p>
-
                 </article>
 
             </div>
 
         </section>
 
-
-        <!-- =========================================
-             FINAL
-        ========================================== -->
 
         <section class="final">
 
